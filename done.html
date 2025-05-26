@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Egg Timer – Done</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="window">
+    <div class="window-bar">
+        <span class="window-title">Egg Timer – Done</span>
+        <div class="window-icons">
+            <img src="assets/minimize.png" alt="minimize" class="icon">
+            <img src="assets/close.png" alt="close" class="icon">
+        </div>
+    </div>
+    <div class="window-content done-content">
+        <h2 class="done-title">Your egg is done!</h2>
+        <img id="egg-done" src="assets/egg-done.gif" alt="Egg Done Animation" class="egg-gif" />
+        <div class="done-btn-row">
+            <button class="snooze-btn" onclick="window.location.href='timer.html?egg=soft'">Snooze</button>
+            <button class="close-btn" onclick="window.location.href='index.html'">Close</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

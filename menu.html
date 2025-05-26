@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Egg Timer – Choose your Egg</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="window">
+    <div class="window-bar">
+        <span class="window-title">Egg Timer – Menu</span>
+        <div class="window-icons">
+            <img src="assets/minimize.png" alt="minimize" class="icon">
+            <img src="assets/close.png" alt="close" class="icon">
+        </div>
+    </div>
+    <div class="window-content menu-content">
+        <h2 class="menu-title">Choose your egg</h2>
+        <div class="egg-menu">
+            <button class="egg-option" onclick="window.location.href='timer.html?egg=soft'">
+                <img src="assets/egg-soft.png" alt="Soft Egg" class="egg-icon" />
+                <span>Soft Boiled</span>
+            </button>
+            <button class="egg-option" onclick="window.location.href='timer.html?egg=hard'">
+                <img src="assets/egg-hard.png" alt="Hard Egg" class="egg-icon" />
+                <span>Hard Boiled</span>
+            </button>
+            <button class="egg-option" onclick="window.location.href='timer.html?egg=fried'">
+                <img src="assets/egg-fried.png" alt="Fried Egg" class="egg-icon" />
+                <span>Fried</span>
+            </button>
+            <button class="egg-option" onclick="window.location.href='timer.html?egg=scrambled'">
+                <img src="assets/egg-scrambled.png" alt="Scrambled Egg" class="egg-icon" />
+                <span>Scrambled</span>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

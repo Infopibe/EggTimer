@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap');
+
+:root {
+    --yellow: #ffea79;
+    --border-yellow: #f9d080;
+    --brown: #67452d;
+    --orange: #f07e5f;
+    --white: #fff;
+}
+
+body {
+    background: #ffeaa7;
+    font-family: 'Pixelify Sans', monospace;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window {
+    width: 340px;
+    border: 5px solid var(--border-yellow);
+    background: var(--yellow);
+    box-shadow: 0 10px 60px #0005, 0 0 0 9px #222;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.window-bar {
+    background: var(--border-yellow);
+    color: var(--orange);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 36px;
+    padding: 0 12px;
+    font-size: 1.1rem;
+    border-bottom: 2.5px solid var(--yellow);
+}
+
+.window-title {
+    font-family: 'Pixelify Sans', monospace;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+.window-icons {
+    display: flex;
+    gap: 5px;
+}
+.icon {
+    width: 18px; height: 18px;
+    margin-left: 2px;
+    image-rendering: pixelated;
+}
+
+.window-content {
+    padding: 32px 0 36px 0;
+    min-height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: var(--yellow);
+}
+
+/* Clouds */
+.cloud {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.92;
+}
+.cloud1 { left: 18px; top: 48px; width: 60px; }
+.cloud2 { left: 160px; top: 125px; width: 84px; }
+.cloud3 { left: 60px; top: 185px; width: 48px; }
+
+.start-title {
+    font-family: 'Pixelify Sans', monospace;
+    color: var(--brown);
+    font-size: 2.25rem;
+    text-align: center;
+    margin: 48px 0 28px 0;
+    z-index: 1;
+    line-height: 1.1;
+    text-shadow: 1.5px 1.5px 0 var(--white);
+}
+
+.start-btn {
+    background: var(--orange);
+    color: var(--white);
+    border: 2.5px solid var(--brown);
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.3rem;
+    padding: 12px 38px;
+    border-radius: 9px;
+    box-shadow: 2.5px 2.5px 0 var(--border-yellow);
+    cursor: pointer;
+    transition: background 0.14s, transform 0.07s;
+    z-index: 1;
+}
+.start-btn:hover {
+    background: #d96a4d;
+    transform: scale(1.07);
+}
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 280px;
+    justify-content: flex-start;
+    position: relative;
+    background: var(--yellow);
+}
+.menu-title {
+    color: var(--brown);
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.4rem;
+    margin-bottom: 24px;
+    margin-top: 18px;
+    text-shadow: 1.5px 1.5px 0 var(--white);
+}
+.egg-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+.egg-option {
+    background: var(--border-yellow);
+    border: 2.5px solid var(--brown);
+    border-radius: 12px;
+    box-shadow: 2.5px 2.5px 0 var(--yellow);
+    padding: 18px 16px 12px 16px;
+    min-width: 110px;
+    min-height: 100px;
+    font-family: 'Pixelify Sans', monospace;
+    color: var(--brown);
+    font-size: 1.15rem;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.07s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.egg-option:hover {
+    background: #ffe28e;
+    transform: scale(1.05);
+}
+.egg-icon {
+    display: block;
+    margin-bottom: 6px;
+    height: 42px;
+    image-rendering: pixelated;
+}
+.timer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 280px;
+    justify-content: flex-start;
+    background: var(--yellow);
+    position: relative;
+}
+.timer-title {
+    color: var(--brown);
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+    margin-top: 22px;
+    text-shadow: 1.2px 1.2px 0 var(--white);
+}
+.egg-gif {
+    width: 60px;
+    height: 60px;
+    image-rendering: pixelated;
+    margin-bottom: 16px;
+}
+.timer-desc {
+    font-family: 'Pixelify Sans', monospace;
+    color: var(--brown);
+    font-size: 1.08rem;
+    margin-bottom: 9px;
+    text-shadow: 1px 1px 0 var(--white);
+}
+.timer-countdown {
+    font-family: 'Pixelify Sans', monospace;
+    color: var(--orange);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    letter-spacing: 1.5px;
+    text-shadow: 1.5px 1.5px 0 var(--white);
+}
+.cancel-btn {
+    background: var(--border-yellow);
+    color: var(--brown);
+    border: 2.5px solid var(--brown);
+    border-radius: 8px;
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.09rem;
+    padding: 8px 24px;
+    box-shadow: 1.5px 1.5px 0 var(--yellow);
+    cursor: pointer;
+    transition: background 0.13s, transform 0.07s;
+    margin-top: 10px;
+}
+.cancel-btn:hover {
+    background: #ffe28e;
+    transform: scale(1.05);
+}
+.done-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 240px;
+    justify-content: flex-start;
+    background: var(--yellow);
+    position: relative;
+}
+.done-title {
+    color: var(--brown);
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.3rem;
+    margin-bottom: 14px;
+    margin-top: 32px;
+    text-shadow: 1.2px 1.2px 0 var(--white);
+}
+.done-btn-row {
+    display: flex;
+    gap: 18px;
+    margin-top: 18px;
+}
+.snooze-btn, .close-btn {
+    background: var(--orange);
+    color: var(--white);
+    border: 2.5px solid var(--brown);
+    border-radius: 8px;
+    font-family: 'Pixelify Sans', monospace;
+    font-size: 1.09rem;
+    padding: 8px 24px;
+    box-shadow: 1.5px 1.5px 0 var(--border-yellow);
+    cursor: pointer;
+    transition: background 0.13s, transform 0.07s;
+}
+.snooze-btn:hover, .close-btn:hover {
+    background: #d96a4d;
+    transform: scale(1.05);
+}
