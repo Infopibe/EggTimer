@@ -19,26 +19,34 @@ window.onload = function() {
         document.getElementById("egg-type-label").textContent = egg.label;
         document.getElementById("egg-gif").src = egg.gif;
 
-        let time = egg.time;
         const timerEl = document.getElementById("timer-countdown");
         const sound = document.getElementById("timer-sound");
 
+        const endTime = Date.now() + egg.time * 1000;
+        let intervalId;
+        let finished = false;
+
         function updateTimer() {
-            const min = String(Math.floor(time / 60)).padStart(2, '0');
-            const sec = String(time % 60).padStart(2, '0');
+            const remaining = Math.max(0, Math.round((endTime - Date.now()) / 1000));
+            const min = String(Math.floor(remaining / 60)).padStart(2, '0');
+            const sec = String(remaining % 60).padStart(2, '0');
             timerEl.textContent = `${min}:${sec}`;
-            if(time > 0) {
-                time--;
-                setTimeout(updateTimer, 1000);
-            } else {
-                timerEl.textContent = "00:00";
+            if(remaining <= 0 && !finished) {
+                finished = true;
+                clearInterval(intervalId);
                 sound.play();
                 setTimeout(() => {
-                    window.location.href = "done.html";
+                    window.location.href = "done.html?egg=" + type;
                 }, 1400); // nach Sound
             }
         }
+
         updateTimer();
+        intervalId = setInterval(updateTimer, 250);
+
+        window.addEventListener('beforeunload', function() {
+            clearInterval(intervalId);
+        });
     }
 };
 

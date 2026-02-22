@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap');
-
 :root {
     --yellow: #ffea79;
     --border-yellow: #f9d080;
     --brown: #67452d;
     --orange: #f07e5f;
     --white: #fff;
+    --bg: #ffeaa7;
 }
 
 body {
-    background: #ffeaa7;
+    background: var(--bg);
     font-family: 'Pixelify Sans', monospace;
     margin: 0;
     padding: 0;
@@ -41,7 +40,6 @@ body {
 }
 
 .window-title {
-    font-family: 'Pixelify Sans', monospace;
     font-weight: 700;
     letter-spacing: .02em;
 }
@@ -62,6 +60,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     position: relative;
     background: var(--yellow);
 }
@@ -77,7 +76,6 @@ body {
 .cloud3 { left: 60px; top: 185px; width: 48px; }
 
 .start-title {
-    font-family: 'Pixelify Sans', monospace;
     color: var(--brown);
     font-size: 2.25rem;
     text-align: center;
@@ -87,16 +85,23 @@ body {
     text-shadow: 1.5px 1.5px 0 var(--white);
 }
 
+/* Shared button base */
+.btn {
+    border: 2.5px solid var(--brown);
+    border-radius: 8px;
+    font-size: 1.09rem;
+    padding: 8px 24px;
+    cursor: pointer;
+    transition: background 0.13s, transform 0.07s;
+}
+
 .start-btn {
     background: var(--orange);
     color: var(--white);
-    border: 2.5px solid var(--brown);
-    font-family: 'Pixelify Sans', monospace;
     font-size: 1.3rem;
     padding: 12px 38px;
     border-radius: 9px;
     box-shadow: 2.5px 2.5px 0 var(--border-yellow);
-    cursor: pointer;
     transition: background 0.14s, transform 0.07s;
     z-index: 1;
 }
@@ -105,17 +110,10 @@ body {
     transform: scale(1.07);
 }
 .menu-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-height: 280px;
-    justify-content: flex-start;
-    position: relative;
-    background: var(--yellow);
 }
 .menu-title {
     color: var(--brown);
-    font-family: 'Pixelify Sans', monospace;
     font-size: 1.4rem;
     margin-bottom: 24px;
     margin-top: 18px;
@@ -135,7 +133,6 @@ body {
     padding: 18px 16px 12px 16px;
     min-width: 110px;
     min-height: 100px;
-    font-family: 'Pixelify Sans', monospace;
     color: var(--brown);
     font-size: 1.15rem;
     cursor: pointer;
@@ -156,17 +153,10 @@ body {
     image-rendering: pixelated;
 }
 .timer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-height: 280px;
-    justify-content: flex-start;
-    background: var(--yellow);
-    position: relative;
 }
 .timer-title {
     color: var(--brown);
-    font-family: 'Pixelify Sans', monospace;
     font-size: 1.3rem;
     margin-bottom: 14px;
     margin-top: 22px;
@@ -179,14 +169,12 @@ body {
     margin-bottom: 16px;
 }
 .timer-desc {
-    font-family: 'Pixelify Sans', monospace;
     color: var(--brown);
     font-size: 1.08rem;
     margin-bottom: 9px;
     text-shadow: 1px 1px 0 var(--white);
 }
 .timer-countdown {
-    font-family: 'Pixelify Sans', monospace;
     color: var(--orange);
     font-size: 2.5rem;
     font-weight: bold;
@@ -197,14 +185,7 @@ body {
 .cancel-btn {
     background: var(--border-yellow);
     color: var(--brown);
-    border: 2.5px solid var(--brown);
-    border-radius: 8px;
-    font-family: 'Pixelify Sans', monospace;
-    font-size: 1.09rem;
-    padding: 8px 24px;
     box-shadow: 1.5px 1.5px 0 var(--yellow);
-    cursor: pointer;
-    transition: background 0.13s, transform 0.07s;
     margin-top: 10px;
 }
 .cancel-btn:hover {
@@ -212,17 +193,10 @@ body {
     transform: scale(1.05);
 }
 .done-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     min-height: 240px;
-    justify-content: flex-start;
-    background: var(--yellow);
-    position: relative;
 }
 .done-title {
     color: var(--brown);
-    font-family: 'Pixelify Sans', monospace;
     font-size: 1.3rem;
     margin-bottom: 14px;
     margin-top: 32px;
@@ -236,14 +210,7 @@ body {
 .snooze-btn, .close-btn {
     background: var(--orange);
     color: var(--white);
-    border: 2.5px solid var(--brown);
-    border-radius: 8px;
-    font-family: 'Pixelify Sans', monospace;
-    font-size: 1.09rem;
-    padding: 8px 24px;
     box-shadow: 1.5px 1.5px 0 var(--border-yellow);
-    cursor: pointer;
-    transition: background 0.13s, transform 0.07s;
 }
 .snooze-btn:hover, .close-btn:hover {
     background: #d96a4d;

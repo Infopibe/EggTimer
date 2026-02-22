@@ -20,10 +20,18 @@
         <h2 class="done-title">Your egg is done!</h2>
         <img id="egg-done" src="assets/egg-done.gif" alt="Egg Done Animation" class="egg-gif" />
         <div class="done-btn-row">
-            <button class="snooze-btn" onclick="window.location.href='timer.html?egg=soft'">Snooze</button>
-            <button class="close-btn" onclick="window.location.href='index.html'">Close</button>
+            <button class="btn snooze-btn">Snooze</button>
+            <button class="btn close-btn" onclick="window.location.href='index.html'">Close</button>
         </div>
     </div>
 </div>
+<script>
+    (function() {
+        const eggParam = new URLSearchParams(window.location.search).get('egg') || 'soft';
+        document.querySelector('.snooze-btn').onclick = function() {
+            window.location.href = 'timer.html?egg=' + eggParam;
+        };
+    })();
+</script>
 </body>
 </html>
