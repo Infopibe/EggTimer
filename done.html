@@ -12,18 +12,25 @@
     <div class="window-bar">
         <span class="window-title">Egg Timer – Done</span>
         <div class="window-icons">
-            <img src="assets/minimize.png" alt="minimize" class="icon">
-            <img src="assets/close.png" alt="close" class="icon">
+            <img src="assets/8664917_window_minimize_icon.png" alt="minimize" class="icon">
+            <img src="assets/211651_close_round_icon.png" alt="close" class="icon">
         </div>
     </div>
     <div class="window-content done-content">
         <h2 class="done-title">Your egg is done!</h2>
         <img id="egg-done" src="assets/egg-done.gif" alt="Egg Done Animation" class="egg-gif" />
         <div class="done-btn-row">
-            <button class="snooze-btn" onclick="window.location.href='timer.html?egg=soft'">Snooze</button>
+            <!-- Snooze reuses the egg type from the URL param passed by timer.html -->
+            <button class="snooze-btn" id="snooze-btn">Snooze</button>
             <button class="close-btn" onclick="window.location.href='index.html'">Close</button>
         </div>
     </div>
 </div>
+<script>
+    var egg = new URLSearchParams(window.location.search).get('egg') || 'soft';
+    document.getElementById('snooze-btn').addEventListener('click', function() {
+        window.location.href = 'timer.html?egg=' + encodeURIComponent(egg);
+    });
+</script>
 </body>
 </html>
