@@ -2,29 +2,81 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Egg Timer &lt;3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <!-- PWA / installable on Android & iOS -->
+    <meta name="theme-color" content="#ffea79" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Egg Timer" />
+    <link rel="manifest" href="manifest.json" />
+    <!-- Apple touch icon (iOS home screen) -->
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <title>Egg Timer ❤</title>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 <div class="window">
     <div class="window-bar">
-        <span class="window-title">Egg Timer &lt;3</span>
+        <span class="window-title" id="window-title">Egg Timer ❤</span>
         <div class="window-icons">
-            <img src="assets/minimize.png" alt="minimize" class="icon">
-            <img src="assets/close.png" alt="close" class="icon">
+            <img src="assets/8664917_window_minimize_icon.png" alt="minimize" class="icon">
+            <img src="assets/211651_close_round_icon.png" alt="close" class="icon">
         </div>
     </div>
-    <div class="window-content">
-        <!-- Clouds Layer -->
-        <img src="assets/cloud1.png" class="cloud cloud1" alt="cloud">
-        <img src="assets/cloud2.png" class="cloud cloud2" alt="cloud">
-        <img src="assets/cloud3.png" class="cloud cloud3" alt="cloud">
-        <!-- Main Content -->
-        <h1 class="start-title">Let’s time<br>your egg!</h1>
-        <button class="start-btn" onclick="window.location.href='menu.html'">Start</button>
+
+    <!-- Screen: Start -->
+    <div class="window-content" id="screen-start">
+        <img src="assets/cloud1.png" class="cloud cloud1" alt="">
+        <img src="assets/cloud2.png" class="cloud cloud2" alt="">
+        <img src="assets/cloud3.png" class="cloud cloud3" alt="">
+        <h1 class="start-title">Let's time<br>your egg!</h1>
+        <button class="start-btn" id="btn-start">Start</button>
+    </div>
+
+    <!-- Screen: Menu -->
+    <div class="window-content menu-content" id="screen-menu" hidden>
+        <h2 class="menu-title">Choose your egg</h2>
+        <div class="egg-menu">
+            <button class="egg-option" data-egg="soft">
+                <img src="assets/egg-soft.png" alt="Soft Egg" class="egg-icon" />
+                <span>Soft Boiled</span>
+            </button>
+            <button class="egg-option" data-egg="hard">
+                <img src="assets/egg-hard.png" alt="Hard Egg" class="egg-icon" />
+                <span>Hard Boiled</span>
+            </button>
+            <button class="egg-option" data-egg="fried">
+                <img src="assets/egg-fried.png" alt="Fried Egg" class="egg-icon" />
+                <span>Fried</span>
+            </button>
+            <button class="egg-option" data-egg="scrambled">
+                <img src="assets/egg-scrambled.png" alt="Scrambled Egg" class="egg-icon" />
+                <span>Scrambled</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Screen: Timer -->
+    <div class="window-content timer-content" id="screen-timer" hidden>
+        <h2 id="egg-type-label" class="timer-title"></h2>
+        <img id="egg-gif" src="" alt="Egg Animation" class="egg-gif" />
+        <div class="timer-desc">Your egg is ready in…</div>
+        <div class="timer-countdown" id="timer-countdown">00:00</div>
+        <button class="cancel-btn" id="btn-cancel">Cancel</button>
+        <audio id="timer-sound" src="assets/ding.mp3" preload="auto"></audio>
+    </div>
+
+    <!-- Screen: Done -->
+    <div class="window-content done-content" id="screen-done" hidden>
+        <h2 class="done-title">Your egg is done!</h2>
+        <img id="egg-done" src="assets/egg-done.gif" alt="Egg Done Animation" class="egg-gif" />
+        <div class="done-btn-row">
+            <button class="snooze-btn" id="btn-snooze">Snooze</button>
+            <button class="close-btn" id="btn-close">Close</button>
+        </div>
     </div>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
