@@ -1,74 +1,80 @@
 # 🍳 Egg Timer
 
-A fun pixel-art egg timer web app for **Soft Boiled**, **Hard Boiled**, **Fried** and **Scrambled** eggs.
+Ein spaßiger Pixel-Art Eierkocher für den Webbrowser – und als App für Android und iOS installierbar.
+
+Die App unterstützt vier Ei-Typen: **Weiches Ei**, **Hartes Ei**, **Spiegelei** und **Rührei**.
 
 ---
 
-## App Concept
+## App-Konzept
 
-The app mimics a retro desktop window and guides the user through three simple steps:
+Die App imitiert ein retro Desktop-Fenster und führt den Nutzer durch drei einfache Schritte:
 
 ```
-[Start Screen] → [Choose Egg] → [Countdown Timer] → [Done!]
+[Start] → [Ei wählen] → [Countdown] → [Fertig!]
 ```
 
-| Screen | Description |
+| Screen | Beschreibung |
 |---|---|
-| **Start** | Welcome screen with animated clouds and a single "Start" button |
-| **Menu** | Four egg type cards (Soft / Hard / Fried / Scrambled) with pixel icons |
-| **Timer** | Animated egg GIF, countdown display and a Cancel button |
-| **Done** | Celebration GIF, Snooze (restart same egg) and Close buttons |
+| **Start** | Willkommensscreen mit animierten Wolken und einem „Start"-Button |
+| **Menü** | Vier Ei-Karten (Weich / Hart / Spiegel / Rühr) mit Pixel-Icons |
+| **Timer** | Animiertes Ei-GIF, Countdown-Anzeige und ein „Abbrechen"-Button |
+| **Fertig** | Celebrations-GIF, „Snooze" (gleiches Ei neu starten) und „Schließen" |
 
-The entire experience lives in a single `index.html` (Single Page Application), so it loads
-instantly, works offline, and can be **installed on Android and iOS** as a Progressive Web App (PWA).
+Die gesamte App läuft in einer einzigen `index.html` (Single Page Application), lädt sofort,
+funktioniert offline und kann auf Android und iOS als Progressive Web App (PWA) **installiert** werden.
 
 ---
 
-## Platform Support
+## Plattform-Unterstützung
 
-| Platform | How it works |
+| Plattform | So funktioniert es |
 |---|---|
-| **Web browser** | Open `index.html` directly or host it on any static server (e.g. GitHub Pages) |
-| **Android** | Visit the hosted URL in Chrome → tap "Add to Home Screen" → works like a native app |
-| **iOS (Safari)** | Visit the hosted URL in Safari → Share → "Add to Home Screen" |
+| **Webbrowser** | `index.html` direkt öffnen oder auf einem Server hosten (z.B. GitHub Pages) |
+| **Android** | Gehostete URL in Chrome aufrufen → „Zum Startbildschirm hinzufügen" |
+| **iOS (Safari)** | Gehostete URL in Safari aufrufen → Teilen → „Zum Home-Bildschirm" |
 
-> **Note:** Full offline support requires the app to be served over HTTPS (GitHub Pages, Netlify, Vercel, etc.). HTTPS is also required for the service worker to activate.
-
----
-
-## What was done (code optimizations)
-
-- **Single Page Application** – merged `menu.html`, `timer.html` and `done.html` into one `index.html`, eliminating duplicated `<head>` blocks and full-page navigations.
-- **Fixed broken asset references** – `assets/minimize.png` and `assets/close.png` did not exist; corrected to the actual filenames (`8664917_window_minimize_icon.png`, `211651_close_round_icon.png`).
-- **Fixed scrambled egg animation** – `script.js` referenced `egg-scrambled.gif` but the file is `egg-scramble.gif`.
-- **Fixed Snooze button** – the original `done.html` always restarted as *soft boiled* regardless of which egg was chosen. The Snooze button now restarts the correct egg type.
-- **Replaced recursive `setTimeout`** with `setInterval` + `clearInterval` so the timer can be properly cancelled when the user presses "Cancel".
-- **Added PWA support** – `manifest.json` and `sw.js` (service worker) enable offline usage and home-screen installation on Android & iOS.
-- **Added mobile meta tags** – `theme-color`, `apple-mobile-web-app-capable` and related tags for a native-like experience.
-- **Added `.gitignore`** – excludes `.DS_Store` files from the repository.
+> **Hinweis:** Offline-Unterstützung und PWA-Installation erfordern HTTPS.
+> GitHub Pages, Netlify und Vercel bieten dies kostenlos an.
 
 ---
 
-## Deployment (GitHub Pages – recommended, free)
+## Was wurde optimiert?
 
-1. Push this repository to GitHub (already done).
-2. Go to **Settings → Pages** in your repository.
-3. Under *Source*, select **Deploy from a branch** → `main` → `/ (root)`.
-4. Click **Save**. Your app will be live at:
+Vollständige Details: siehe **[CHANGELOG.md](CHANGELOG.md)**
+
+Kurzübersicht:
+
+- **Single Page Application** – alle 4 HTML-Seiten zu einer `index.html` zusammengeführt
+- **Kaputte Bild-Referenzen behoben** – `minimize.png` / `close.png` existierten nicht
+- **Rührei-Animation behoben** – falscher Dateiname `egg-scrambled.gif` → `egg-scramble.gif`
+- **Snooze-Bug behoben** – startete immer weiches Ei, egal was gewählt wurde
+- **Timer-Logik verbessert** – `setInterval` + `clearInterval` statt unkündbarem `setTimeout`
+- **PWA-Support** – `manifest.json` und `sw.js` für Installation und Offline-Betrieb
+- **Mobile Meta-Tags** – native Statusleiste auf iPhone, `viewport-fit=cover` für Notch
+
+---
+
+## Deployment (GitHub Pages – empfohlen, kostenlos)
+
+1. Repository auf GitHub hochladen (bereits erledigt).
+2. Im Repository auf **Settings → Pages** gehen.
+3. Unter *Source*: **Deploy from a branch** → `main` → `/ (root)` wählen.
+4. Auf **Save** klicken. Die App ist dann erreichbar unter:
    ```
-   https://<your-username>.github.io/<repo-name>/
+   https://<dein-benutzername>.github.io/<repo-name>/
    ```
-5. Share the URL — users can immediately add it to their home screen on Android and iOS.
+5. URL teilen – Nutzer können die App sofort auf Android und iOS installieren.
 
 ---
 
-## Next steps for you (things that require your action)
+## Nächste Schritte (was du selbst tun musst)
 
-| Task | Why it's needed | Notes |
+| Aufgabe | Warum nötig? | Hinweise |
 |---|---|---|
-| **Publish to GitHub Pages** | Makes the app accessible via HTTPS so PWA install & offline mode work | Free, takes ~2 minutes |
-| **Create a proper app icon** | The current icon is a small PNG egg; stores require 512x512 px and specific formats | Use [Canva](https://canva.com) or [RealFaviconGenerator](https://realfavicongenerator.net) |
-| **Publish to Google Play Store** | Optional – lets users find the app in the Play Store | Requires a Google Play developer account ($25 one-time fee) and wrapping the PWA with [Bubblewrap](https://github.com/GoogleChromeLabs/bubblewrap) or [PWABuilder](https://www.pwabuilder.com) |
-| **Publish to Apple App Store** | Optional – lets iPhone users find the app in the App Store | Requires an Apple Developer account ($99/year); use [PWABuilder](https://www.pwabuilder.com) to generate an Xcode project |
-| **Custom domain** | Makes the URL look professional (e.g. `eggtimer.app`) | Buy a domain (~$10/year) and point it to GitHub Pages |
-| **Push notifications** | Could remind users when the timer is done even if the screen is locked | Requires additional server-side code or a service like Firebase |
+| **GitHub Pages aktivieren** | HTTPS für PWA-Install & Offline | Settings → Pages → main → / |
+| **App-Icon erstellen** | Stores brauchen 512x512 px Icon | [Canva](https://canva.com) oder [RealFaviconGenerator](https://realfavicongenerator.net) |
+| **Google Play Store** | App im Play Store veröffentlichen | Google Play Konto ($25 einmalig) + [PWABuilder](https://www.pwabuilder.com) |
+| **Apple App Store** | App im App Store veröffentlichen | Apple Developer Konto ($99/Jahr) + [PWABuilder](https://www.pwabuilder.com) |
+| **Eigene Domain** | Professionelle URL (z.B. `eggtimer.app`) | Domain kaufen (~$10/Jahr), auf GitHub Pages zeigen |
+| **Push-Benachrichtigungen** | Timer-Alarm auch bei gesperrtem Bildschirm | Benötigt Backend, z.B. Firebase |
